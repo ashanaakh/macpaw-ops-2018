@@ -1,10 +1,5 @@
 # Macpaw DevOps Quest
 
-Tast:
-
-ls -R . | less
-cat /var/tmp/files/guide/hidden/42/08/72/FixelHoover
-
 Yay, you've found our task. Congratulations! But this is only the beginning of our quest :)
 It's ok to skip tasks if you can't solve them, however try to do your best and solve as much as possible.
 
@@ -17,7 +12,7 @@ Basic tasks:
 5. We want to see this page using domain name 'internship.macpaw.io'. You know what to do :)
 6. We have an encrypted file with additional tasks at '/tmp/additional.zip', but we forgot the password for this file. Fortunately one of us remembers that we added three values to compute the password:
   a) most common non-200 response code at our old website
-  b) number of requests from 8.8.8.8
+  b) number of requests from `8.8.8.8`
   c) the two first symbols from ETag header of a file stored in our s3 bucket
   For 'a' and 'b' subtasks our old logs stored at '/var/log/nginx/old.log'. For 'c' endpoint is 'hint.macpaw.io'.
   For example, if you get 302, 77 and 10 in the three above values, just add them like 302+77+10=389 - this would be your password
@@ -28,10 +23,10 @@ Also you can do all additional tasks and commit them too.
 
 Remember to reflect all your changes in Dockerfile and ensure that your Dockerfile builds correctly.
 
-## Additional part of our quest
+# Additional part of our quest
 
 This is an additional part of our quest.
 
-1. Please add log rotation for supervisor and dpkg files at /var/log/ directory.
+1. Please add log rotation for supervisor and dpkg files at `/var/log/` directory.
 2. Write down a little program that is able to show up your public IP.
-3. The result of this program execution should be available at 'internship.macpaw.io/ip'
+3. The result of this program execution should be available at `internship.macpaw.io/ip`
