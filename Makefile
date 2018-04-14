@@ -1,13 +1,13 @@
-IMAGE   ?= ashanaakh/internship
 VERSION ?= latest
 SERVICE ?= quest
+IMAGE   ?= ashanaakh/$(SERVICE):$(VERSION)
 
-default: build run exec
+default: build run exec clean
 
 build:
 	@docker build -t $(IMAGE) .
 
-push:
+push: build
 	@docker push $(IMAGE)
 
 run: build

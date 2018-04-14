@@ -12,13 +12,13 @@ func main() {
 		ip, port, err := net.SplitHostPort(req.RemoteAddr)
 
 		if err != nil {
-			fmt.Fprintf(w, "userip: %q is not IP:port", req.RemoteAddr)
+			fmt.Fprintf(w, "Invalid form %q (IP:port)", req.RemoteAddr)
 		}
 
 		userIP := net.ParseIP(ip)
 
 		if userIP == nil {
-			fmt.Fprintf(w, "userip: %q is not IP:port", req.RemoteAddr)
+			fmt.Fprintf(w, "Invalid form %q (IP:port)", req.RemoteAddr)
 			return
 		}
 
@@ -28,5 +28,6 @@ func main() {
 		fmt.Fprintf(w, "<p>Port: %s</p>", port)
 		fmt.Fprintf(w, "<p>Forwarded for: %s</p>", forward)
 	})
+
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
