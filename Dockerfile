@@ -11,9 +11,9 @@ COPY getip /go/src/getip
 
 COPY src /app
 
-COPY nginx.conf /etc/nginx/conf.d/nginx.conf
+COPY cfg/nginx.conf /etc/nginx/conf.d/nginx.conf
 
-COPY logrotate.conf /etc/logrotate.conf
+COPY cfg/logrotate.conf /etc/logrotate.conf
 
 COPY scripts/* /
 
