@@ -1,6 +1,7 @@
 FROM macpaw/internship
 
-ENV GOPATH=/go
+ENV GOPATH /go
+ENV GETIP_PORT 8080
 
 RUN apt install -y vim curl wget tree grep sed zip \
                    build-essential logrotate golang
