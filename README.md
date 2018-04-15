@@ -28,7 +28,7 @@ Server written in *golang*, that prints client `IP` and  `PORT`.
 
 ### Usage
 
-Let's Move to getip directory
+Let's move to getip directory
 
 ```
 $ cd getip
