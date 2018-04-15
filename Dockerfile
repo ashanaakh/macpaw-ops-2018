@@ -15,7 +15,8 @@ COPY nginx.conf /etc/nginx/conf.d/nginx.conf
 
 COPY logrotate.conf /etc/logrotate.conf
 
-COPY entrypoint.sh /entrypoint.sh
+COPY scripts/* /
+
 
 RUN cd ${GOPATH}/src/getip && \
     go get ./... && go build && cd - && \
