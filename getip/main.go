@@ -2,12 +2,19 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"net"
 	"net/http"
+	"os"
 )
 
 func main() {
+	serverPort, exists := os.LookupEnv("GETIP_PORT")
+
+	if !exists {
+		fmt.Println("Enviroment variable GETIP_PORT is not set. Using 3000.")
+		serverPort = "3000"
+	}
+
 	http.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {
 		ip, port, err := net.SplitHostPort(req.RemoteAddr)
 
@@ -29,5 +36,7 @@ func main() {
 		fmt.Fprintf(w, "<p>Forwarded for: %s</p>", forward)
 	})
 
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	fmt.Println("Server is running...")
+
+	http.ListenAndServe(":"+serverPort, nil)
 }
