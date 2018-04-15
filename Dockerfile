@@ -3,10 +3,9 @@ FROM macpaw/internship
 ENV GOPATH /go
 ENV GETIP_PORT 8080
 
-RUN apt install -y vim curl wget tree grep sed zip \
-                   build-essential logrotate golang
+RUN apt install -y vim curl wget zip logrotate golang
 
-RUN rm /app/* /etc/logrotate.d/* /etc/nginx/conf.d/nginx.conf
+RUN rm /app/* /etc/logrotate.d/* /etc/nginx/conf.d/*
 
 COPY getip /go/src/getip
 
@@ -17,7 +16,6 @@ COPY nginx.conf /etc/nginx/conf.d/nginx.conf
 COPY logrotate.conf /etc/logrotate.conf
 
 COPY scripts/* /
-
 
 RUN cd ${GOPATH}/src/getip && \
     go get ./... && go build && cd - && \
