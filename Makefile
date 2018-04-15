@@ -2,7 +2,7 @@ VERSION ?= latest
 SERVICE ?= quest
 IMAGE   ?= ashanaakh/$(SERVICE):$(VERSION)
 
-default: build run exec clean
+default: build run exec
 
 build:
 	@docker build -t $(IMAGE) .
